@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Wed Apr 10 15:31:40 2024\n"
+"POT-Creation-Date: Wed Mar  5 18:50:53 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -20,47 +20,34 @@ msgstr ""
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "Hello World"
+#: Game.Levels.TutorialWorld.L01_TheRflTactic
+msgid "The rfl tactic"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "This text is shown as first message when the level is played.\n"
-"You can insert hints in the proof below. They will appear in this side panel\n"
-"depending on the proof a user provides."
+#: Game.Levels.TutorialWorld.L01_TheRflTactic
+msgid "欢迎来到你的 Lean 线性代数学习之旅！在这一关中，你将学习到几个最常用的 Lean 证明策略，它们就像是证明的基石，能够帮助你构建复杂的证明过程"
 msgstr ""
 
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You can either start using `«{h}»` or `«{g}»`."
-msgstr ""
-
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You should use `«{h}»` now."
-msgstr ""
-
-#: Game.Levels.DemoWorld.L01_HelloWorld
-msgid "You should use `«{g}»` now."
-msgstr ""
-
-#: Game.Levels.DemoWorld.L01_HelloWorld
+#: Game.Levels.TutorialWorld.L01_TheRflTactic
 msgid "This last message appears if the level is solved."
 msgstr ""
 
-#: Game.Levels.DemoWorld
-msgid "Demo World"
+#: Game.Levels.TutorialWorld
+msgid "Tutorial World"
 msgstr ""
 
-#: Game.Levels.DemoWorld
+#: Game.Levels.TutorialWorld
 msgid "This introduction is shown before one enters level 1 of the demo world. Use markdown."
 msgstr ""
 
 #: Game
-msgid "Hello World Game"
+msgid "A Lean4 Game of Linear Algebra"
 msgstr ""
 
 #: Game
-msgid "This text appears on the starting page where one selects the world/level to play.\n"
-"You can use markdown."
+msgid "你是否对线性代数感到头疼？是否想要一种全新的方式来学习数学？那么，欢迎来到 Lean 线性代数世界！\n"
+"\n"
+"在这里，你将不再是枯燥地面对公式和定理，而是化身为一位数学探险家，运用 Lean 强大的定理证明功能，解决一道道精心设计的线性代数谜题。"
 msgstr ""
 
 #: Game
