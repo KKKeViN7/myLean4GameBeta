@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "TutorialWorld"
-Level 1
-Title "The rfl and rw tactics"
+World "DeterminantWorld"
+Level 3
+Title "The transpose determinant"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -12,19 +12,20 @@ Introduction "
 
 rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。
 "
+open Finset Function OrderDual
+open BigOperators Matrix
 
-Statement (h : y = x + 7) (h' : 2 * x + 14 = z): 2 * y = z := by
-  Hint "使用 rw [h] 可以将假设 h 代表的等式代入到证明目标中。"
-  rw [h]
-  Hint "使用 rw [←h'] 可以将假设 h' 代表的等式反向代入（从右向左）到证明目标中。"
-  rw [←h']
-  Hint "rfl 是 reflexivity（反身性）的缩写，它将尝试使用反身性来完成当前的目标。"
-  rfl
+Statement det_of_lowerTriangular [LinearOrder m] [DecidableEq m] [Fintype m]
+  (M : Matrix m m ℤ) (h : BlockTriangular M toDual) :
+    M.det = ∏ i : m, M i i := by
+    rw [← det_transpose]
+    exact det_of_upperTriangular h.transpose
+
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
-NewTactic rfl rw
--- NewTheorem Nat.add_comm Nat.add_assoc
--- NewDefinition Nat Add Eq
+--NewTactic
+NewTheorem Matrix.det_transpose
+--NewDefinition

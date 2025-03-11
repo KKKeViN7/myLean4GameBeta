@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "TutorialWorld"
-Level 1
-Title "The rfl and rw tactics"
+World "DeterminantWorld"
+Level 2
+Title "The diagonal determinant"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -12,19 +12,25 @@ Introduction "
 
 rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。
 "
+open Finset Function OrderDual
+open BigOperators Matrix
 
-Statement (h : y = x + 7) (h' : 2 * x + 14 = z): 2 * y = z := by
-  Hint "使用 rw [h] 可以将假设 h 代表的等式代入到证明目标中。"
-  rw [h]
-  Hint "使用 rw [←h'] 可以将假设 h' 代表的等式反向代入（从右向左）到证明目标中。"
-  rw [←h']
-  Hint "rfl 是 reflexivity（反身性）的缩写，它将尝试使用反身性来完成当前的目标。"
-  rfl
+/-Statement [DecidableEq n] [Fintype n] [CommRing R]
+  (v : n → R) (A : Matrix n n R) (h: A = diagonal v) :
+    det A = ∏ i, v i:= by
+      rw [h]
+      rw [det_diagonal]-/
+
+Statement [DecidableEq n] [Fintype n] [CommRing R]:
+  det (1 : Matrix n n R) = 1 := by
+    rw [← diagonal_one]
+    rw [det_diagonal]
+    simp
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
-NewTactic rfl rw
--- NewTheorem Nat.add_comm Nat.add_assoc
--- NewDefinition Nat Add Eq
+--NewTactic
+NewTheorem Matrix.det_diagonal Matrix.diagonal_one
+--NewDefinition

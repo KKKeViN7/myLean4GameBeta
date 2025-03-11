@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Wed Mar  5 18:50:53 2025\n"
+"POT-Creation-Date: Tue Mar 11 09:28:55 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -21,15 +21,115 @@ msgid "intermediate goal solved! 🎉"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.L01_TheRflTactic
-msgid "The rfl tactic"
+msgid "The rfl and rw tactics"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.L01_TheRflTactic
-msgid "欢迎来到你的 Lean 线性代数学习之旅！在这一关中，你将学习到几个最常用的 Lean 证明策略，它们就像是证明的基石，能够帮助你构建复杂的证明过程"
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.L01_TheRflTactic
-msgid "This last message appears if the level is solved."
+msgid "使用 rw [h] 可以将假设 h 代表的等式代入到证明目标中。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L01_TheRflTactic
+msgid "使用 rw [←h'] 可以将假设 h' 代表的等式反向代入（从右向左）到证明目标中。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L01_TheRflTactic
+msgid "rfl 是 reflexivity（反身性）的缩写，它将尝试使用反身性来完成当前的目标。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L02_TheApplyTactic
+msgid "The intro, exact and apply tactics"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L02_TheApplyTactic
+msgid "欢迎来到 Lean 线性代数之旅的第二关！在这一关中，我们将学习三个在逻辑推理中至关重要的证明策略：intro, exact 和 apply。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L02_TheApplyTactic
+msgid "在证明“p → r”形式的命题时，我们需要引入假设p作为前提。使用 intro hp 可以帮助我们做到这一点。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L02_TheApplyTactic
+msgid "在证明过程中，我们经常需要应用已知的定理或假设。apply 策略可以将这些定理或假设“套用”到当前的目标上，尝试 apply hqr 并关注目标的变化。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L02_TheApplyTactic
+msgid "当我们已经找到了与证明目标完全匹配的证据时，exact 策略可以直接完成证明，尝试 exact hp 。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L03_TheCasesTactic
+msgid "The cases tactic"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L03_TheCasesTactic
+msgid "欢迎来到 Lean 线性代数之旅的第三关！在这一关中，我们将学习如何使用 cases 策略进行情况分析，以及如何使用 And.intro 定理来构建合取命题的证明。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L03_TheCasesTactic
+msgid "在数学证明中，我们经常需要根据不同的情况进行分析。尝试使用 cases hpq 拆解命题。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L03_TheCasesTactic
+msgid "合取命题需要证明所有组成部分都为真。And.intro 定理允许我们通过分别证明每个组成部分，来构建合取命题的证明。注意这是一个定理，需要以 apply And.intro 形式来使用。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L04_TheCasesTactic2
+msgid "The cases tactic 2"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L04_TheCasesTactic2
+msgid "欢迎来到 Lean 线性代数之旅的第四关！在这一关中，我们将深入学习如何使用 cases 策略进行情况分析，以及如何使用 Or.inl 和 Or.inr 定理来构建析取命题的证明。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L04_TheCasesTactic2
+msgid "析取命题需要证明至少一个组成部分为真。Or.inl 和 Or.inr 定理允许我们通过分别证明左侧或右侧的组成部分，来构建析取命题的证明。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L05_TheContradictionTactic
+msgid "The contradiction tactic"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L05_TheContradictionTactic
+msgid "欢迎来到 Lean 线性代数之旅的第五关！在这一关中，我们将学习如何使用 contradiction 策略，它不仅能证明矛盾命题，还能帮助我们像侦探一样在假设中搜索矛盾。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L05_TheContradictionTactic
+msgid "使用 contradiction 策略搜索当前假设中的矛盾"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L06_TheLinarithTactic
+msgid "The linarith tactic"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L06_TheLinarithTactic
+msgid "欢迎来到 Lean 线性代数之旅的第六关！在这一关中，我们将学习如何使用 linarith 策略，这是解决线性算术问题的强大工具。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L06_TheLinarithTactic
+msgid "linarith 是 Lean 中一个强大的自动化策略，它能够自动解决包含线性算术表达式的证明目标。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L07_TheSimpTactic
+msgid "The simp tactic"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L07_TheSimpTactic
+msgid "欢迎来到 Lean 线性代数之旅的第七关！在这一关中，我们将学习如何使用 simp 和 simp_arith 策略，它们是简化表达式的强大工具。\n"
+"\n"
+"simp 是 Lean 中一个强大的简化策略，它能够自动应用一系列简化规则，将表达式化简为更简单的形式。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L07_TheSimpTactic
+msgid "simp at h 允许你在证明目标的特定位置应用简化规则。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L07_TheSimpTactic
+msgid "simp_arith 是 simp 的一个变体，专门用于简化算术表达式。"
 msgstr ""
 
 #: Game.Levels.TutorialWorld
@@ -37,7 +137,55 @@ msgid "Tutorial World"
 msgstr ""
 
 #: Game.Levels.TutorialWorld
-msgid "This introduction is shown before one enters level 1 of the demo world. Use markdown."
+msgid "欢迎来到你的 Lean 线性代数学习之旅！在这个教程世界中，你将学习到几个最常用的 Lean 证明策略，它们就像是证明的基石，能够帮助你构建复杂的证明过程。"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L01_TheUpperTriangularDet
+msgid "The upper triangular determinant"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L01_TheUpperTriangularDet
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L02_TheDiagonalDet
+msgid "The diagonal determinant"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L02_TheDiagonalDet
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L03_TheTransposeDet
+msgid "The transpose determinant"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L03_TheTransposeDet
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L04_ThePermuteDet
+msgid "The permute determinant"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L04_ThePermuteDet
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld
+msgid "Determinant World"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld
+msgid "欢迎来到你的 Lean 线性代数学习之旅！在这个教程世界中，你将学习到几个最常用的 Lean 证明策略，它们就像是证明的基石，能够帮助你构建复杂的证明过程。"
 msgstr ""
 
 #: Game
