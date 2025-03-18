@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "DeterminantWorld"
-Level 4
-Title "The permute determinant"
+World "MatrixWorld"
+Level 1
+Title "The smul distrib matrix"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,17 +15,19 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [DecidableEq n] [Fintype n] [CommRing R]
-  (M : Matrix n n R) (i j : n) (i_ne_j : i ≠ j):
-    (Matrix.det fun a b => M (Equiv.swap i j a) b) = -1 * M.det := by
-      rw [det_permute (Equiv.swap i j) M]
-      rw [Equiv.Perm.sign_swap i_ne_j]
-      simp
+
+Statement [Fintype m] [DecidableEq m] [CommSemiring α]
+  (a : α) (M : Matrix m m α) (N : Matrix m m α) :
+    a • (M * N) = M * (a • N) := by
+      rw [Matrix.smul_eq_mul_diagonal (M * N) a]
+      rw [Matrix.mul_assoc]
+      rw [Matrix.smul_eq_mul_diagonal N a]
+
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
---NewTactic
-NewTheorem Matrix.det_permute Equiv.Perm.sign_swap
-NewDefinition Equiv.swap
+--NewTactic use
+NewTheorem Matrix.smul_eq_mul_diagonal Matrix.mul_assoc
+--NewDefinition

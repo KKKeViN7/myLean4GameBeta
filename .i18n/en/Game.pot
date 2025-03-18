@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Mar 11 09:28:55 2025\n"
+"POT-Creation-Date: Mon Mar 17 20:40:23 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -99,6 +99,10 @@ msgid "欢迎来到 Lean 线性代数之旅的第五关！在这一关中，我�
 msgstr ""
 
 #: Game.Levels.TutorialWorld.L05_TheContradictionTactic
+msgid "你可以使用 have h' : ¬ 0 < 0 := by simp 来引入一个中间结论 h'，它表示 0 < 0 的否定，并使用 simp 简单地证明它。"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.L05_TheContradictionTactic
 msgid "使用 contradiction 策略搜索当前假设中的矛盾"
 msgstr ""
 
@@ -180,11 +184,143 @@ msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中�
 "rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
 msgstr ""
 
+#: Game.Levels.DeterminantWorld.L05_TheRowEqualDet
+msgid "The row equal determinant"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L05_TheRowEqualDet
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L06_TheUpdateRowDet
+msgid "The update row determinant"
+msgstr ""
+
+#: Game.Levels.DeterminantWorld.L06_TheUpdateRowDet
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
 #: Game.Levels.DeterminantWorld
 msgid "Determinant World"
 msgstr ""
 
 #: Game.Levels.DeterminantWorld
+msgid "欢迎来到你的 Lean 线性代数学习之旅！在这个教程世界中，你将学习到几个最常用的 Lean 证明策略，它们就像是证明的基石，能够帮助你构建复杂的证明过程。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L01_TheSmulDistribMatrix
+msgid "The smul distrib matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L01_TheSmulDistribMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L02_TheDistribOneMatrix
+msgid "The distrib one matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L02_TheDistribOneMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L03_TheCommMatrix
+msgid "The comm matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L03_TheCommMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L04_TheNonCommMatrix
+msgid "The non comm matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L04_TheNonCommMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L05_TheTransposeMatrix
+msgid "The transpose matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L05_TheTransposeMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L06_TheCommDetMatrix
+msgid "The comm det matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L06_TheCommDetMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L06_TheCommDetMatrix
+msgid "ring 策略是 Lean 中一个强大的自动化策略，用于证明环（ring）上的等式。它能够自动应用环的公理和基本性质，如交换律、结合律、分配律等。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L07_TheAdjugateInvertMatrix
+msgid "The adjugate invert matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L07_TheAdjugateInvertMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L08_TheAdjugateDetMatrix
+msgid "The adjugate det matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L08_TheAdjugateDetMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L09_TheMulInvertMatrix
+msgid "The mul invert matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L09_TheMulInvertMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L10_TheTransposeInvertMatrix
+msgid "The transpose invert matrix"
+msgstr ""
+
+#: Game.Levels.MatrixWorld.L10_TheTransposeInvertMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.MatrixWorld
+msgid "Matrix World"
+msgstr ""
+
+#: Game.Levels.MatrixWorld
 msgid "欢迎来到你的 Lean 线性代数学习之旅！在这个教程世界中，你将学习到几个最常用的 Lean 证明策略，它们就像是证明的基石，能够帮助你构建复杂的证明过程。"
 msgstr ""
 

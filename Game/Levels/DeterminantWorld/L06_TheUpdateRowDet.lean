@@ -1,8 +1,8 @@
 import Game.Metadata
 
 World "DeterminantWorld"
-Level 4
-Title "The permute determinant"
+Level 6
+Title "The update row determinant"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,11 +15,13 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [DecidableEq n] [Fintype n] [CommRing R]
-  (M : Matrix n n R) (i j : n) (i_ne_j : i ≠ j):
-    (Matrix.det fun a b => M (Equiv.swap i j a) b) = -1 * M.det := by
-      rw [det_permute (Equiv.swap i j) M]
-      rw [Equiv.Perm.sign_swap i_ne_j]
+Statement [DecidableEq n] [Fintype n]
+  (M : Matrix n n ℝ) (i j : n) (i_ne_j : i ≠ j) (hij : M i = M j) :
+    M.det = 0 := by
+      rw[←det_updateRow_add_smul_self M i_ne_j (-1 : ℝ)]
+      simp [hij]
+      rw[det_eq_zero_of_row_eq_zero]
+      exact i
       simp
 
 --Conclusion "This last message appears if the level is solved."
@@ -27,5 +29,5 @@ Statement [DecidableEq n] [Fintype n] [CommRing R]
 /- Use these commands to add items to the game's inventory. -/
 
 --NewTactic
-NewTheorem Matrix.det_permute Equiv.Perm.sign_swap
-NewDefinition Equiv.swap
+NewTheorem Matrix.det_updateRow_add_smul_self Matrix.det_eq_zero_of_row_eq_zero
+--NewDefinition

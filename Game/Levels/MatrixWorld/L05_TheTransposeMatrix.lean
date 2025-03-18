@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "DeterminantWorld"
-Level 4
-Title "The permute determinant"
+World "MatrixWorld"
+Level 5
+Title "The transpose matrix"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,17 +15,15 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [DecidableEq n] [Fintype n] [CommRing R]
-  (M : Matrix n n R) (i j : n) (i_ne_j : i ≠ j):
-    (Matrix.det fun a b => M (Equiv.swap i j a) b) = -1 * M.det := by
-      rw [det_permute (Equiv.swap i j) M]
-      rw [Equiv.Perm.sign_swap i_ne_j]
-      simp
+Statement [DecidableEq n] [Fintype n] [Zero α] [One α] [Sub α] [AddCommMonoid α] [CommSemigroup α]
+  (X : Matrix n n α) :
+    ((1 : Matrix n n α) - X * Xᵀ)ᵀ = (1 : Matrix n n α) - X * Xᵀ := by
+      rw [transpose_sub, transpose_one, transpose_mul, transpose_transpose]
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
---NewTactic
-NewTheorem Matrix.det_permute Equiv.Perm.sign_swap
-NewDefinition Equiv.swap
+--NewTactic use
+NewTheorem Matrix.transpose_sub Matrix.transpose_one Matrix.transpose_mul Matrix.transpose_transpose
+--NewDefinition

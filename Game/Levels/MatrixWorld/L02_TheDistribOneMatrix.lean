@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "DeterminantWorld"
-Level 4
-Title "The permute determinant"
+World "MatrixWorld"
+Level 2
+Title "The distrib one matrix"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,17 +15,21 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [DecidableEq n] [Fintype n] [CommRing R]
-  (M : Matrix n n R) (i j : n) (i_ne_j : i ≠ j):
-    (Matrix.det fun a b => M (Equiv.swap i j a) b) = -1 * M.det := by
-      rw [det_permute (Equiv.swap i j) M]
-      rw [Equiv.Perm.sign_swap i_ne_j]
+
+Statement [Fintype n] [DecidableEq n]
+  (A: Matrix n n ℕ) :
+    (A + (1 : Matrix n n ℕ)) * (A + (1 : Matrix n n ℕ)) = A * A + A + A + (1 : Matrix n n ℕ) := by
+      rw [Matrix.mul_add]
+      rw [Matrix.add_mul]
+      rw [Matrix.add_mul]
       simp
+      rw [←add_assoc]
+
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
 --NewTactic
-NewTheorem Matrix.det_permute Equiv.Perm.sign_swap
-NewDefinition Equiv.swap
+NewTheorem add_assoc Matrix.mul_add Matrix.add_mul
+--NewDefinition

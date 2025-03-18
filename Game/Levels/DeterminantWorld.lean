@@ -3,6 +3,8 @@ import Game.Levels.DeterminantWorld.L01_TheUpperTriangularDet
 import Game.Levels.DeterminantWorld.L02_TheDiagonalDet
 import Game.Levels.DeterminantWorld.L03_TheTransposeDet
 import Game.Levels.DeterminantWorld.L04_ThePermuteDet
+import Game.Levels.DeterminantWorld.L05_TheRowEqualDet
+import Game.Levels.DeterminantWorld.L06_TheUpdateRowDet
 
 
 World "DeterminantWorld"

@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "DeterminantWorld"
-Level 4
-Title "The permute determinant"
+World "MatrixWorld"
+Level 8
+Title "The adjugate det matrix"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,17 +15,25 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [DecidableEq n] [Fintype n] [CommRing R]
-  (M : Matrix n n R) (i j : n) (i_ne_j : i ≠ j):
-    (Matrix.det fun a b => M (Equiv.swap i j a) b) = -1 * M.det := by
-      rw [det_permute (Equiv.swap i j) M]
-      rw [Equiv.Perm.sign_swap i_ne_j]
+Statement [DecidableEq n] [Fintype n] [Nonempty n] [CommRing α]
+  (A : Matrix n n α) [Invertible A] [Invertible A.det] :
+    (adjugate A).det = A.det ^ (Fintype.card n - 1) := by
+      have h : adjugate A = A.det • (⅟ A) := by
+        rw [invOf_eq]
+        simp
+      rw [h]
+      rw [det_smul]
+      rw [det_invOf]
+      have h2 : det A ^ Fintype.card n = det A ^ (Fintype.card n - 1) * det A := by
+        rw [←pow_succ, Nat.sub_add_cancel]
+        exact Fintype.card_pos
+      rw [h2]
       simp
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
---NewTactic
-NewTheorem Matrix.det_permute Equiv.Perm.sign_swap
-NewDefinition Equiv.swap
+--NewTactic ring
+NewTheorem Matrix.invOf_eq Matrix.det_smul Matrix.det_invOf pow_succ Nat.sub_add_cancel Fintype.card_pos
+NewDefinition Fintype.card

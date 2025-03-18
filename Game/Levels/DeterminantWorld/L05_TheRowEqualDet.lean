@@ -1,8 +1,8 @@
 import Game.Metadata
 
 World "DeterminantWorld"
-Level 4
-Title "The permute determinant"
+Level 5
+Title "The row equal determinant"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,17 +15,30 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [DecidableEq n] [Fintype n] [CommRing R]
+theorem det_permute_row [DecidableEq n] [Fintype n] [CommRing R]
   (M : Matrix n n R) (i j : n) (i_ne_j : i ≠ j):
     (Matrix.det fun a b => M (Equiv.swap i j a) b) = -1 * M.det := by
       rw [det_permute (Equiv.swap i j) M]
       rw [Equiv.Perm.sign_swap i_ne_j]
       simp
 
+Statement [DecidableEq n] [Fintype n]
+  (M : Matrix n n ℝ) (i j : n) (i_ne_j : i ≠ j) (hij : M i = M j) :
+    M.det = 0 := by
+      have h_swap : M = fun a b => M (Equiv.swap i j a) b := by ext a b; rw [Equiv.apply_swap_eq_self hij]
+      have h_eq : M.det = -1 * M.det := by rw [←det_permute_row M i j i_ne_j]; rw [←h_swap]
+      have h_add : M.det + M.det = 0 := by nth_rw 1 [h_eq];simp
+      rw [←two_mul] at h_add
+      rw [mul_eq_zero] at h_add
+      cases h_add
+      have h_neq: ¬ (2 : ℝ) = 0 := by simp
+      contradiction
+      exact h
+
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
---NewTactic
-NewTheorem Matrix.det_permute Equiv.Perm.sign_swap
-NewDefinition Equiv.swap
+NewTactic ext nth_rw
+NewTheorem det_permute_row Equiv.apply_swap_eq_self two_mul mul_eq_zero
+--NewDefinition

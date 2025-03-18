@@ -1,6 +1,7 @@
 --import all worlds
 import Game.Levels.TutorialWorld
 import Game.Levels.DeterminantWorld
+import Game.Levels.MatrixWorld
 
 -- Here's what we'll put on the title screen
 Title "A Lean4 Game of Linear Algebra"

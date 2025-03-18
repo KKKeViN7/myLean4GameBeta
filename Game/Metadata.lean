@@ -3,6 +3,7 @@ import GameServer.Commands
 import Mathlib.Tactic
 import Mathlib.LinearAlgebra.Matrix.Block
 import Mathlib.LinearAlgebra.Matrix.Determinant
+import Mathlib.Data.Matrix.Basic
 
 --import Mathlib.Tactic.Common
 
