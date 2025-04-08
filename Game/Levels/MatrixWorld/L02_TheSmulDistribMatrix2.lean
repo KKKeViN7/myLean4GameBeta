@@ -2,7 +2,7 @@ import Game.Metadata
 
 World "MatrixWorld"
 Level 2
-Title "The distrib one matrix"
+Title "The smul distrib matrix2"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,21 +15,27 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-
-Statement [Fintype n] [DecidableEq n]
+/-Statement [Fintype n] [DecidableEq n]
   (A: Matrix n n ℕ) :
     (A + (1 : Matrix n n ℕ)) * (A + (1 : Matrix n n ℕ)) = A * A + A + A + (1 : Matrix n n ℕ) := by
       rw [Matrix.mul_add]
       rw [Matrix.add_mul]
       rw [Matrix.add_mul]
       simp
-      rw [←add_assoc]
+      rw [←add_assoc]-/
 
+Statement [Fintype m] [DecidableEq m] [CommSemiring α]
+  (a : α) (M : Matrix m m α) (N : Matrix m m α) :
+    a • (M + N) = a • M + a • N := by
+      rw [Matrix.smul_eq_mul_diagonal (M + N) a]
+      rw [Matrix.add_mul]
+      rw [←Matrix.smul_eq_mul_diagonal M a]
+      rw [←Matrix.smul_eq_mul_diagonal N a]
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
-
+DisabledTactic simp
 --NewTactic
 NewTheorem add_assoc Matrix.mul_add Matrix.add_mul
 --NewDefinition

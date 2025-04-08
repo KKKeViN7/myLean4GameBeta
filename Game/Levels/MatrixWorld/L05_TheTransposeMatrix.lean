@@ -16,9 +16,13 @@ open Finset Function OrderDual
 open BigOperators Matrix
 
 Statement [DecidableEq n] [Fintype n] [Zero α] [One α] [Sub α] [AddCommMonoid α] [CommSemigroup α]
-  (X : Matrix n n α) :
-    ((1 : Matrix n n α) - X * Xᵀ)ᵀ = (1 : Matrix n n α) - X * Xᵀ := by
-      rw [transpose_sub, transpose_one, transpose_mul, transpose_transpose]
+  (X E: Matrix n n α) (he : E = 1):
+    (E - X * Xᵀ)ᵀ = E - X * Xᵀ := by
+      rw [he]
+      rw [transpose_sub]
+      rw [transpose_one]
+      rw [transpose_mul]
+      rw [transpose_transpose]
 
 --Conclusion "This last message appears if the level is solved."
 

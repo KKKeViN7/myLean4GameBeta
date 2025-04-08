@@ -1,7 +1,7 @@
 --import all levels of this world
 import Game.Levels.MatrixWorld.L01_TheSmulDistribMatrix
-import Game.Levels.MatrixWorld.L02_TheDistribOneMatrix
-import Game.Levels.MatrixWorld.L03_TheCommMatrix
+import Game.Levels.MatrixWorld.L02_TheSmulDistribMatrix2
+import Game.Levels.MatrixWorld.L03_TheNonCancelMatrix
 import Game.Levels.MatrixWorld.L04_TheNonCommMatrix
 import Game.Levels.MatrixWorld.L05_TheTransposeMatrix
 import Game.Levels.MatrixWorld.L06_TheCommDetMatrix
@@ -9,6 +9,8 @@ import Game.Levels.MatrixWorld.L07_TheAdjugateInvertMatrix
 import Game.Levels.MatrixWorld.L08_TheAdjugateDetMatrix
 import Game.Levels.MatrixWorld.L09_TheMulInvertMatrix
 import Game.Levels.MatrixWorld.L10_TheTransposeInvertMatrix
+import Game.Levels.MatrixWorld.L11_TheInvertibleMatrix
+import Game.Levels.MatrixWorld.L12_TheCancelInvertibleMatrix
 
 World "MatrixWorld"
 Title "Matrix World"

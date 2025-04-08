@@ -1,10 +1,14 @@
 --import all levels of this world
 import Game.Levels.DeterminantWorld.L01_TheUpperTriangularDet
-import Game.Levels.DeterminantWorld.L02_TheDiagonalDet
-import Game.Levels.DeterminantWorld.L03_TheTransposeDet
+import Game.Levels.DeterminantWorld.L02_TheTransposeDet
+import Game.Levels.DeterminantWorld.L03_TheSmulDet
 import Game.Levels.DeterminantWorld.L04_ThePermuteDet
 import Game.Levels.DeterminantWorld.L05_TheRowEqualDet
 import Game.Levels.DeterminantWorld.L06_TheUpdateRowDet
+import Game.Levels.DeterminantWorld.L07_TheMulDet
+import Game.Levels.DeterminantWorld.L08_TheInvertDet
+import Game.Levels.DeterminantWorld.L09_TheInvertDet2
+import Game.Levels.DeterminantWorld.L10_TheBlockDet
 
 
 World "DeterminantWorld"

@@ -2,6 +2,9 @@
 import Game.Levels.TutorialWorld
 import Game.Levels.DeterminantWorld
 import Game.Levels.MatrixWorld
+import Game.Levels.RankWorld
+import Game.Levels.OrthogonalityWorld
+import Game.Levels.EigenvaluesWorld
 
 -- Here's what we'll put on the title screen
 Title "A Lean4 Game of Linear Algebra"
@@ -30,6 +33,7 @@ Use markdown.
 Languages "Chinese"
 CaptionShort "Game Template"
 CaptionLong "You should use this game as a template for your own game and add your own levels."
+Dependency TutorialWorld → DeterminantWorld → MatrixWorld → RankWorld → OrthogonalityWorld → EigenvaluesWorld
 -- Prerequisites "" -- add this if your game depends on other games
 -- CoverImage "images/cover.png"
 

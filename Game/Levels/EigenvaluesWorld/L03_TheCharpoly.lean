@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "MatrixWorld"
-Level 9
-Title "The mul invert matrix"
+World "EigenvaluesWorld"
+Level 3
+Title "The charpoly"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -14,29 +14,20 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 "
 open Finset Function OrderDual
 open BigOperators Matrix
+open Module End
+open Polynomial
 
-Statement [Fintype n] [DecidableEq n] [CommRing α]
-  (A B : Matrix n n α) :
-    (A * B)⁻¹ = B⁻¹ * A⁻¹ := by
-      simp only [Matrix.inv_def]
-      rw [det_mul]
-      rw [Ring.mul_inverse_rev]
-      rw [Matrix.smul_mul]
-      rw [Matrix.mul_smul]
-      rw [smul_smul]
-      rw [adjugate_mul_distrib]
-
-
-/-example [Fintype n] [DecidableEq n] [CommRing α]
-  (A B : Matrix n n α) [Invertible A] [Invertible B]:
-    (A * B) * (B⁻¹ * A⁻¹) = (1 : Matrix n n α) := by
-      rw [←Matrix.mul_assoc]
-      simp-/
+Statement (n : ℕ) (A : Matrix (Fin n) (Fin n) ℝ) :
+  Matrix.charpoly A = ((diagonal fun _ => X) - (Matrix.map A C)).det := by
+    rw [charpoly]
+    rw [charmatrix]
+    rw [scalar_apply]
+    rfl
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
 --NewTactic ring
-NewTheorem Matrix.inv_def Matrix.smul_mul Matrix.mul_smul smul_smul Ring.mul_inverse_rev Matrix.adjugate_mul_distrib
---NewDefinition
+NewTheorem Matrix.scalar_apply
+NewDefinition Polynomial.X Polynomial.C Matrix.charpoly Matrix.charmatrix

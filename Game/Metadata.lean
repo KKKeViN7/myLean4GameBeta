@@ -4,6 +4,11 @@ import Mathlib.Tactic
 import Mathlib.LinearAlgebra.Matrix.Block
 import Mathlib.LinearAlgebra.Matrix.Determinant
 import Mathlib.Data.Matrix.Basic
+import Mathlib.Data.Matrix.Rank
+import Mathlib.LinearAlgebra.Eigenspace.Basic
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs
+
 
 --import Mathlib.Tactic.Common
 

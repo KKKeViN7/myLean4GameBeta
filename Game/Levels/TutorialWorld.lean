@@ -1,11 +1,14 @@
 --import all levels of this world
-import Game.Levels.TutorialWorld.L01_TheRflTactic
+import Game.Levels.TutorialWorld.L01_TheRwTactic
 import Game.Levels.TutorialWorld.L02_TheApplyTactic
 import Game.Levels.TutorialWorld.L03_TheCasesTactic
 import Game.Levels.TutorialWorld.L04_TheCasesTactic2
 import Game.Levels.TutorialWorld.L05_TheContradictionTactic
 import Game.Levels.TutorialWorld.L06_TheLinarithTactic
 import Game.Levels.TutorialWorld.L07_TheSimpTactic
+import Game.Levels.TutorialWorld.L08_TheUseTactic
+import Game.Levels.TutorialWorld.L09_TheHaveTactic
+import Game.Levels.TutorialWorld.L10_TheNthrwTactic
 
 World "TutorialWorld"
 Title "Tutorial World"

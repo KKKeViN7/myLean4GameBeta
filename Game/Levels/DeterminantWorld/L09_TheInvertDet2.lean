@@ -1,8 +1,8 @@
 import Game.Metadata
 
 World "DeterminantWorld"
-Level 3
-Title "The transpose determinant"
+Level 9
+Title "The invert determinant2"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,17 +15,26 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement det_of_lowerTriangular [LinearOrder m] [DecidableEq m] [Fintype m]
-  (M : Matrix m m ℤ) (h : BlockTriangular M toDual) :
-    M.det = ∏ i : m, M i i := by
-    rw [← det_transpose]
-    exact det_of_upperTriangular h.transpose
+/-Statement [DecidableEq n] [Fintype n] [CommRing R]:
+  det (1 : Matrix n n R) = 1 := by
+    rw [← diagonal_one]
+    rw [det_diagonal]
+    simp-/
 
+Statement [DecidableEq n] [Fintype n]
+  (A P: Matrix n n ℝ) [Invertible P] [Invertible P.det] :
+    det (P * A * P⁻¹) = (det A) := by
+      rw [det_mul]
+      rw [mul_comm]
+      rw [det_mul]
+      rw [←mul_assoc]
+      simp
 
+--det_updateRow_smul
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
 --NewTactic
-NewTheorem Matrix.det_transpose
+NewTheorem mul_comm mul_assoc
 --NewDefinition

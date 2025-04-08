@@ -15,19 +15,18 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [DecidableEq n] [Fintype n] [DecidableEq m] [Fintype m] [CommRing R]
-  (A B : Matrix n n R) :
+Statement [DecidableEq n] [Fintype n]
+  (A B : Matrix n n ℝ) :
     det (A * B) = det (B * A) := by
       rw [det_mul]
       rw [det_mul]
-      Hint "ring 策略是 Lean 中一个强大的自动化策略，用于证明环（ring）上的等式。它能够自动应用环的公理和基本性质，如交换律、结合律、分配律等。"
-      ring
+      linarith
 
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
-NewTactic ring
+--NewTactic ring
 NewTheorem Matrix.det_mul
 NewDefinition Matrix.det

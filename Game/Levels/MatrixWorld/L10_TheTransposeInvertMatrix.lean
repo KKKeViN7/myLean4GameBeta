@@ -21,8 +21,8 @@ Statement [Fintype n] [DecidableEq n] [CommRing α]
       rw [Matrix.inv_def]
       rw [Matrix.inv_def]
       rw [transpose_smul]
-      rw [det_transpose]
       rw [adjugate_transpose]
+      rw [det_transpose]
 
 --Conclusion "This last message appears if the level is solved."
 

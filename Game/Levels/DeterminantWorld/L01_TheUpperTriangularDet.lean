@@ -22,9 +22,13 @@ open BigOperators Matrix
       rw [det_of_upperTriangular]
       exact h-/
 
-Statement [LinearOrder m] [DecidableEq m] [Fintype m] [Zero m] [CommRing R]
+Statement [LinearOrder m] [DecidableEq m] [Fintype m] [CommRing R]
   (v : m → R) (A : Matrix m m R) (h: A = diagonal v) :
-    det A = ∏ i : m, A i i := by
+    det A = ∏ i, v i := by
+      have heq : ∏ i, v i = ∏ i, A i i := by
+        rw[h]
+        simp
+      rw[heq]
       rw [det_of_upperTriangular]
       intro i j hij
       rw [h]
@@ -38,4 +42,4 @@ Statement [LinearOrder m] [DecidableEq m] [Fintype m] [Zero m] [CommRing R]
 
 --NewTactic
 NewTheorem Matrix.det_of_upperTriangular Matrix.diagonal_apply_ne ne_of_gt
---NewDefinition
+NewDefinition Matrix.det Matrix.of

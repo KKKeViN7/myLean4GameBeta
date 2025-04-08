@@ -1,8 +1,8 @@
 import Game.Metadata
 
 World "MatrixWorld"
-Level 4
-Title "The non comm matrix"
+Level 3
+Title "The non cancel matrix"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,28 +15,37 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement : ∃ n : ℕ, ∃ (A B : Matrix (Fin n) (Fin n) ℕ), A * B ≠ B * A := by
+/-Statement [CommSemiring R]
+  (A B : Matrix (Fin 1) (Fin 1) R) :
+    A * B = B * A := by
+      ext i j
+      simp [Matrix.mul_apply]
+      fin_cases i
+      fin_cases j
+      simp
+      apply mul_comm-/
+
+Statement : ∃ n : ℕ, ∃ (A B C: Matrix (Fin n) (Fin n) ℕ), A * B = A * C ∧ B ≠ C := by
   use 2
-  use !![1, 2; 3, 4]
-  use !![4, 3; 2, 1]
-  have ab : !![(1 : ℕ), 2; 3, 4] * !![4, 3; 2, 1] = !![8, 5; 20, 13] := by simp
-  have ba : !![(4 : ℕ), 3; 2, 1] * !![1, 2; 3, 4] = !![13, 20; 5, 8] := by simp
-  rw [ab]
-  rw [ba]
+  use (0 : Matrix (Fin 2) (Fin 2) ℕ)
+  use ![![1, 2], ![3, 4]]
+  use ![![4, 3], ![2, 1]]
+  apply And.intro
+  rw [zero_mul]
+  rw [zero_mul]
   intro h
   apply Matrix.ext_iff.mpr at h
   have h00 := h 0 0
-  repeat rw [Matrix.of_apply] at h00
-  have a00: ![![(8 : ℕ), 5], ![20, 13]] 0 0 = 8 := by simp
-  have b00: ![![(13 : ℕ), 20], ![5, 8]] 0 0 = 13 := by simp
-  rw [a00] at h00
+  have b00: ![![(1 : ℕ), 2], ![3, 4]] 0 0 = 1 := by simp
+  have c00: ![![(4 : ℕ), 3], ![2, 1]] 0 0 = 4 := by simp
   rw [b00] at h00
+  rw [c00] at h00
   contradiction
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
---NewTactic use
-NewTheorem Matrix.ext_iff Matrix.of_apply
+NewTactic fin_cases
+NewTheorem Matrix.mul_apply Matrix.ext_iff Matrix.zero_mul
 --NewDefinition

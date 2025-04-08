@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "MatrixWorld"
-Level 9
-Title "The mul invert matrix"
+World "DeterminantWorld"
+Level 2
+Title "The transpose determinant"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,28 +15,17 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [Fintype n] [DecidableEq n] [CommRing α]
-  (A B : Matrix n n α) :
-    (A * B)⁻¹ = B⁻¹ * A⁻¹ := by
-      simp only [Matrix.inv_def]
-      rw [det_mul]
-      rw [Ring.mul_inverse_rev]
-      rw [Matrix.smul_mul]
-      rw [Matrix.mul_smul]
-      rw [smul_smul]
-      rw [adjugate_mul_distrib]
+Statement det_of_lowerTriangular [LinearOrder m] [DecidableEq m] [Fintype m]
+  (M : Matrix m m ℤ) (h : BlockTriangular M toDual) :
+    M.det = ∏ i : m, M i i := by
+    rw [← det_transpose]
+    exact det_of_upperTriangular h.transpose
 
-
-/-example [Fintype n] [DecidableEq n] [CommRing α]
-  (A B : Matrix n n α) [Invertible A] [Invertible B]:
-    (A * B) * (B⁻¹ * A⁻¹) = (1 : Matrix n n α) := by
-      rw [←Matrix.mul_assoc]
-      simp-/
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
---NewTactic ring
-NewTheorem Matrix.inv_def Matrix.smul_mul Matrix.mul_smul smul_smul Ring.mul_inverse_rev Matrix.adjugate_mul_distrib
+--NewTactic
+NewTheorem Matrix.det_transpose
 --NewDefinition

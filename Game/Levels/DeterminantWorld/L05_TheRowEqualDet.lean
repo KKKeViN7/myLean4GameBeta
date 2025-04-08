@@ -28,17 +28,19 @@ Statement [DecidableEq n] [Fintype n]
       have h_swap : M = fun a b => M (Equiv.swap i j a) b := by ext a b; rw [Equiv.apply_swap_eq_self hij]
       have h_eq : M.det = -1 * M.det := by rw [←det_permute_row M i j i_ne_j]; rw [←h_swap]
       have h_add : M.det + M.det = 0 := by nth_rw 1 [h_eq];simp
-      rw [←two_mul] at h_add
+      rw [add_self_eq_zero] at h_add
+      exact h_add
+      /-rw [←two_mul] at h_add
       rw [mul_eq_zero] at h_add
       cases h_add
       have h_neq: ¬ (2 : ℝ) = 0 := by simp
       contradiction
-      exact h
+      exact h-/
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
 NewTactic ext nth_rw
-NewTheorem det_permute_row Equiv.apply_swap_eq_self two_mul mul_eq_zero
+NewTheorem det_permute_row Equiv.apply_swap_eq_self two_mul mul_eq_zero add_self_eq_zero
 --NewDefinition

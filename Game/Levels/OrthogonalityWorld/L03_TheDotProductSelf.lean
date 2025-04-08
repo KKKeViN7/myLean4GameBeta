@@ -1,8 +1,8 @@
 import Game.Metadata
 
-World "DeterminantWorld"
-Level 2
-Title "The diagonal determinant"
+World "OrthogonalityWorld"
+Level 3
+Title "The dot product self"
 
 /-Introduction "This text is shown as first message when the level is played.
 You can insert hints in the proof below. They will appear in this side panel
@@ -15,22 +15,19 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-/-Statement [DecidableEq n] [Fintype n] [CommRing R]
-  (v : n → R) (A : Matrix n n R) (h: A = diagonal v) :
-    det A = ∏ i, v i:= by
-      rw [h]
-      rw [det_diagonal]-/
-
-Statement [DecidableEq n] [Fintype n] [CommRing R]:
-  det (1 : Matrix n n R) = 1 := by
-    rw [← diagonal_one]
-    rw [det_diagonal]
-    simp
+Statement (n : ℕ) (u : Fin n → ℝ) : u ⬝ᵥ u ≥ 0 ∧ (u ⬝ᵥ u = 0 ↔ u = 0) := by
+  apply And.intro
+  rw [dotProduct]
+  apply Finset.sum_nonneg
+  simp
+  intro i
+  exact mul_self_nonneg (u i)
+  exact dotProduct_self_eq_zero
 
 --Conclusion "This last message appears if the level is solved."
 
 /- Use these commands to add items to the game's inventory. -/
 
---NewTactic
-NewTheorem Matrix.det_diagonal Matrix.diagonal_one
---NewDefinition
+--NewTactic ring
+NewTheorem Finset.sum_nonneg mul_self_nonneg Matrix.dotProduct_self_eq_zero
+NewDefinition Matrix.dotProduct

@@ -28,6 +28,7 @@ Statement [Fintype m] [DecidableEq m] [CommSemiring α]
 
 /- Use these commands to add items to the game's inventory. -/
 
+DisabledTactic simp
 --NewTactic use
-NewTheorem Matrix.smul_eq_mul_diagonal Matrix.mul_assoc
---NewDefinition
+NewTheorem Matrix.smul_eq_mul_diagonal Matrix.mul_assoc Matrix.det_transpose mul_comm MulZeroClass.zero_mul Matrix.inv_eq_right_inv
+NewDefinition Matrix Fin
