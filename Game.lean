@@ -33,7 +33,8 @@ Use markdown.
 Languages "Chinese"
 CaptionShort "Game Template"
 CaptionLong "You should use this game as a template for your own game and add your own levels."
-Dependency TutorialWorld → DeterminantWorld → MatrixWorld → RankWorld → OrthogonalityWorld → EigenvaluesWorld
+Dependency TutorialWorld → DeterminantWorld → MatrixWorld → RankWorld → EigenvaluesWorld
+Dependency TutorialWorld → DeterminantWorld → MatrixWorld → OrthogonalityWorld
 -- Prerequisites "" -- add this if your game depends on other games
 -- CoverImage "images/cover.png"
 

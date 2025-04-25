@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Mon Apr  7 20:55:44 2025\n"
+"POT-Creation-Date: Fri Apr 25 01:10:42 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -534,6 +534,16 @@ msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中�
 "rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
 msgstr ""
 
+#: Game.Levels.OrthogonalityWorld.L07_TheOrthogonalMatrix
+msgid "The orthogonal matrix"
+msgstr ""
+
+#: Game.Levels.OrthogonalityWorld.L07_TheOrthogonalMatrix
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
 #: Game.Levels.OrthogonalityWorld
 msgid "Orthogonality World"
 msgstr ""
@@ -617,6 +627,16 @@ msgid "The poly eigenvalue"
 msgstr ""
 
 #: Game.Levels.EigenvaluesWorld.L08_ThePolyEigenvalue
+msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
+"\n"
+"rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"
+msgstr ""
+
+#: Game.Levels.EigenvaluesWorld.L09_TheInvertEigenvalue
+msgid "The invert eigenvalue"
+msgstr ""
+
+#: Game.Levels.EigenvaluesWorld.L09_TheInvertEigenvalue
 msgid "欢迎来到你的 Lean 线性代数之旅的第一关！在这一关中，我们将学习 Lean 中最简单但又非常重要的证明策略：rfl 和 rw 。\n"
 "\n"
 "rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证明目标中的一部分。这就像在数学证明中“代入”或“替换”的概念。"

@@ -21,12 +21,11 @@ open BigOperators Matrix
     rw [det_diagonal]
     simp-/
 
-Statement [DecidableEq n] [Fintype n]
-  (A : Matrix n n ℝ) (k : ℝ) :
-    ∀ x : n, det (of fun i j => if i = x then k * A i j else A i j) = k * det A := by
+Statement (n : ℕ)(A : Matrix (Fin n) (Fin n) ℝ) (k : ℝ) :
+    ∀ x : Fin n, det (of fun i j => if i = x then k * A i j else A i j) = k * det A := by
       intro x
       --Hint let
-      let v : n → ℝ := fun i => if i = x then k else 1
+      let v : (Fin n) → ℝ := fun i => if i = x then k else 1
       have h_eq : of (fun i j => if i = x then k * A i j else A i j) = of (fun i j => v i * A i j) := by
         simp
         ext i j

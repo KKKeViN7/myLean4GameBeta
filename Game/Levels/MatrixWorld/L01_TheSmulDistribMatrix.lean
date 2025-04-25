@@ -15,7 +15,6 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-
 Statement [Fintype m] [DecidableEq m] [CommSemiring α]
   (a : α) (M : Matrix m m α) (N : Matrix m m α) :
     a • (M * N) = M * (a • N) := by
@@ -31,4 +30,4 @@ Statement [Fintype m] [DecidableEq m] [CommSemiring α]
 DisabledTactic simp
 --NewTactic use
 NewTheorem Matrix.smul_eq_mul_diagonal Matrix.mul_assoc Matrix.det_transpose mul_comm MulZeroClass.zero_mul Matrix.inv_eq_right_inv
-NewDefinition Matrix Fin
+NewDefinition Matrix Fin invertibleMul Invertible

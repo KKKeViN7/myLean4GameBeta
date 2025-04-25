@@ -15,21 +15,25 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-theorem det_permute_row [DecidableEq n] [Fintype n] [CommRing R]
-  (M : Matrix n n R) (i j : n) (i_ne_j : i ≠ j):
-    (Matrix.det fun a b => M (Equiv.swap i j a) b) = -1 * M.det := by
-      rw [det_permute (Equiv.swap i j) M]
-      rw [Equiv.Perm.sign_swap i_ne_j]
-      simp
+theorem det_permute_row (n : ℕ) (M : Matrix (Fin n) (Fin n) ℝ) (i j : Fin n) (i_ne_j : i ≠ j):
+  (Matrix.det fun a b => M (Equiv.swap i j a) b) = -1 * M.det := by
+    rw [det_permute (Equiv.swap i j) M]
+    rw [Equiv.Perm.sign_swap i_ne_j]
+    simp
 
-Statement [DecidableEq n] [Fintype n]
-  (M : Matrix n n ℝ) (i j : n) (i_ne_j : i ≠ j) (hij : M i = M j) :
-    M.det = 0 := by
-      have h_swap : M = fun a b => M (Equiv.swap i j a) b := by ext a b; rw [Equiv.apply_swap_eq_self hij]
-      have h_eq : M.det = -1 * M.det := by rw [←det_permute_row M i j i_ne_j]; rw [←h_swap]
-      have h_add : M.det + M.det = 0 := by nth_rw 1 [h_eq];simp
-      rw [add_self_eq_zero] at h_add
-      exact h_add
+Statement (n : ℕ) (M : Matrix (Fin n) (Fin n) ℝ) (i j : Fin n) (i_ne_j : i ≠ j) (hij : M i = M j) :
+  M.det = 0 := by
+    have h_swap : M = fun a b => M (Equiv.swap i j a) b := by
+      ext a b
+      rw [Equiv.apply_swap_eq_self hij]
+    have h_eq : M.det = -1 * M.det := by
+      rw [←det_permute_row n M i j i_ne_j]
+      rw [←h_swap]
+    have h_add : M.det + M.det = 0 := by
+      nth_rw 1 [h_eq]
+      simp
+    rw [add_self_eq_zero] at h_add
+    exact h_add
       /-rw [←two_mul] at h_add
       rw [mul_eq_zero] at h_add
       cases h_add

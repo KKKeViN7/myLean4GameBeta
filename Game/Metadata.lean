@@ -8,6 +8,7 @@ import Mathlib.Data.Matrix.Rank
 import Mathlib.LinearAlgebra.Eigenspace.Basic
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Eigs
+import Mathlib.LinearAlgebra.Matrix.Orthogonal
 
 
 --import Mathlib.Tactic.Common

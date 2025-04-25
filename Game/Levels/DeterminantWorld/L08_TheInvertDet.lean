@@ -21,8 +21,7 @@ open BigOperators Matrix
     rw [det_diagonal]
     simp-/
 
-Statement [DecidableEq n] [Fintype n]
-  (A : Matrix n n ℝ) [Invertible A] [Invertible A.det] :
+Statement (n : ℕ) (A : Matrix (Fin n) (Fin n) ℝ) [Invertible A] [Invertible A.det] :
     det (A⁻¹) = 1 / (det A) := by
       have h : det (A⁻¹) * det A = 1 := by
         rw [← det_mul]

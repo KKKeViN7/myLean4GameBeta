@@ -16,14 +16,14 @@ open Finset Function OrderDual
 open BigOperators Matrix
 
 
-Statement (n : ℕ) (A E: Matrix (Fin n) (Fin n) ℝ) (h : IsUnit A) (he : E = 1) :
+Statement (n : ℕ) (A I: Matrix (Fin n) (Fin n) ℝ) (h : IsUnit A) (hi : I = 1) :
   (adjugate A).rank = n := by
     rw [isUnit_iff_isUnit_det] at h
-    have h1 : (A * adjugate A).rank = (A.det • E).rank := by
-      rw [he]
+    have h1 : (A * adjugate A).rank = (A.det • I).rank := by
+      rw [hi]
       rw [mul_adjugate]
-    have h2 : (A.det • E).rank = n := by
-      rw [Matrix.smul_eq_mul_diagonal E A.det]
+    have h2 : (A.det • I).rank = n := by
+      rw [Matrix.smul_eq_mul_diagonal I A.det]
       rw [rank_mul_eq_right_of_isUnit_det]
       rw [rank_diagonal]
       have h3 : det A ≠ 0 := by
@@ -33,7 +33,7 @@ Statement (n : ℕ) (A E: Matrix (Fin n) (Fin n) ℝ) (h : IsUnit A) (he : E = 1
         apply det_ne_zero_of_left_inverse h4
       simp [h3]
       rw [Fintype.subtype_card]
-      repeat simp [he]
+      repeat simp [hi]
     rw [h2] at h1
     rw [rank_mul_eq_right_of_isUnit_det] at h1
     exact h1

@@ -24,8 +24,7 @@ open BigOperators Matrix
       simp
       rw [←add_assoc]-/
 
-Statement [Fintype m] [DecidableEq m] [CommSemiring α]
-  (a : α) (M : Matrix m m α) (N : Matrix m m α) :
+Statement (n : ℕ) (a : ℝ) (M N : Matrix (Fin n) (Fin n) ℝ):
     a • (M + N) = a • M + a • N := by
       rw [Matrix.smul_eq_mul_diagonal (M + N) a]
       rw [Matrix.add_mul]

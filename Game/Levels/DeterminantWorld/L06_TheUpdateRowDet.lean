@@ -15,8 +15,7 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [DecidableEq n] [Fintype n]
-  (M : Matrix n n ℝ) (i j : n) (i_ne_j : i ≠ j) (hij : M i = M j) :
+Statement (n : ℕ) (M : Matrix (Fin n) (Fin n) ℝ) (i j : Fin n) (i_ne_j : i ≠ j) (hij : M i = M j) :
     M.det = 0 := by
       rw[←det_updateRow_add_smul_self M i_ne_j (-1 : ℝ)]
       simp [hij]

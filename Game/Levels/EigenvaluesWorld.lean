@@ -7,6 +7,7 @@ import Game.Levels.EigenvaluesWorld.L05_TheTraceEqSumEigenvalue
 import Game.Levels.EigenvaluesWorld.L06_TheSmulEigenvalue
 import Game.Levels.EigenvaluesWorld.L07_ThePowEigenvalue
 import Game.Levels.EigenvaluesWorld.L08_ThePolyEigenvalue
+import Game.Levels.EigenvaluesWorld.L09_TheInvertEigenvalue
 
 World "EigenvaluesWorld"
 Title "Eigenvalues World"

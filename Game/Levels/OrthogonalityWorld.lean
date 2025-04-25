@@ -5,6 +5,7 @@ import Game.Levels.OrthogonalityWorld.L03_TheDotProductSelf
 import Game.Levels.OrthogonalityWorld.L04_TheSmulNorm
 import Game.Levels.OrthogonalityWorld.L05_TheDivNormUnit
 import Game.Levels.OrthogonalityWorld.L06_TheTriangleInequality
+import Game.Levels.OrthogonalityWorld.L07_TheOrthogonalMatrix
 
 World "OrthogonalityWorld"
 Title "Orthogonality World"

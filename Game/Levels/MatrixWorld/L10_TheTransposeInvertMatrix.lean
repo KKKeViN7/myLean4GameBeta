@@ -15,14 +15,23 @@ rw 是 rewrite（重写）的缩写，它允许你使用已知的等式替换证
 open Finset Function OrderDual
 open BigOperators Matrix
 
-Statement [Fintype n] [DecidableEq n] [CommRing α]
-  (A : Matrix n n α):
-    A⁻¹ᵀ = Aᵀ⁻¹ := by
+Statement (n : ℕ) (A : Matrix (Fin n) (Fin n) ℝ) [Invertible A] :
+  A⁻¹ᵀ = Aᵀ⁻¹ := by
+    Branch
       rw [Matrix.inv_def]
       rw [Matrix.inv_def]
       rw [transpose_smul]
       rw [adjugate_transpose]
       rw [det_transpose]
+    have h1 : Aᵀ * A⁻¹ᵀ = 1 := by
+      rw [← transpose_mul A⁻¹ A]
+      simp
+    have h2 : Aᵀ⁻¹ * Aᵀ * A⁻¹ᵀ = Aᵀ⁻¹ := by
+      rw [mul_assoc]
+      simp [h1]
+    simp at h2
+    exact h2
+
 
 --Conclusion "This last message appears if the level is solved."
 

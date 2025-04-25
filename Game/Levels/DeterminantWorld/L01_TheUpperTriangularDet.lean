@@ -42,4 +42,4 @@ Statement [LinearOrder m] [DecidableEq m] [Fintype m] [CommRing R]
 
 --NewTactic
 NewTheorem Matrix.det_of_upperTriangular Matrix.diagonal_apply_ne ne_of_gt
-NewDefinition Matrix.det Matrix.of
+NewDefinition Matrix.det Matrix.of Fin

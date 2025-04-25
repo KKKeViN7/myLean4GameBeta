@@ -26,5 +26,5 @@ Statement (n : ℕ) (u v : Fin n → ℝ) : u ⬝ᵥ v = v ⬝ᵥ u := by
 /- Use these commands to add items to the game's inventory. -/
 
 --NewTactic ring
-NewTheorem Matrix.dotProduct_comm mul_comm
+NewTheorem Matrix.dotProduct_comm mul_comm Finset.sum_eq_zero_iff_of_nonneg funext Iff.intro
 --NewDefinition
